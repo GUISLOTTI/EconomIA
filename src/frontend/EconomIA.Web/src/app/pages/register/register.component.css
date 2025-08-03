@@ -1,0 +1,297 @@
+
+/* ===== REGISTER PAGE STYLES ===== */
+
+.register-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #E0F6FF 0%, #FFE4E1 100%);
+}
+
+/* Header */
+.auth-header {
+  background: linear-gradient(135deg, #FFE4E1 0%, #E0F6FF 100%);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+}
+
+.logo {
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* Main Content */
+.register-main {
+  padding: 40px 0 60px;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+.register-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Info Section */
+.register-info-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-content {
+  text-align: center;
+  max-width: 450px;
+}
+
+.info-pig {
+  margin-bottom: 32px;
+}
+
+.info-pig-img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1));
+  animation: float 3s ease-in-out infinite;
+}
+
+.info-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: var(--black);
+  line-height: 1.3;
+}
+
+.info-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.info-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+}
+
+.benefit-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.info-benefit h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.info-benefit p {
+  color: var(--gray-dark);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Form Section */
+.register-form-section {
+  display: flex;
+  justify-content: center;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  background: var(--white);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-strong);
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.register-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.register-subtitle {
+  color: var(--gray-dark);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Form Styles */
+.register-form {
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn-full {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.error-message {
+  background: #FEE2E2;
+  color: #DC2626;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-small);
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.loading-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Terms and Links */
+.terms-text {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-top: 16px;
+}
+
+.terms-text p {
+  color: var(--gray-dark);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.login-link {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-medium);
+}
+
+.login-link p {
+  color: var(--gray-dark);
+  font-size: 14px;
+}
+
+.link-primary {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.link-primary:hover {
+  color: var(--accent-cyan-dark);
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .register-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 20px;
+  }
+  
+  .info-content {
+    max-width: 350px;
+  }
+  
+  .info-pig-img {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .info-title {
+    font-size: 1.6rem;
+  }
+  
+  .register-card {
+    padding: 32px 24px;
+  }
+  
+  .register-title {
+    font-size: 1.6rem;
+  }
+  
+  .info-benefits {
+    gap: 16px;
+  }
+  
+  .info-benefit {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-main {
+    padding: 20px 0 40px;
+  }
+  
+  .register-card {
+    padding: 24px 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .info-benefit {
+    padding: 12px;
+  }
+  
+  .info-benefit h3 {
+    font-size: 1rem;
+  }
+  
+  .info-benefit p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animação float reutilizada */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}

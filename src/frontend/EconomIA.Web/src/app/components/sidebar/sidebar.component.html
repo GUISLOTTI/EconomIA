@@ -1,0 +1,54 @@
+
+<!-- Sidebar Component -->
+<aside class="sidebar" [class.collapsed]="isCollapsed">
+  
+  <!-- Sidebar Header -->
+  <div class="sidebar-header">
+    <div class="sidebar-logo" [class.collapsed]="isCollapsed">
+      <img src="assets/logo-economia.png" alt="EcoPig Logo" class="sidebar-logo-img">
+      <div class="sidebar-logo-text" *ngIf="!isCollapsed">
+        <span class="logo-economia">Econom</span><span class="logo-ia">IA</span>
+      </div>
+    </div>
+    
+    <button class="sidebar-toggle" (click)="toggleSidebar()">
+      <span class="toggle-icon" [class.rotated]="isCollapsed">→</span>
+    </button>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar-nav">
+    <ul class="nav-list">
+      <li 
+        class="nav-item" 
+        *ngFor="let item of menuItems"
+        [class.active]="item.id === currentSection"
+        [class.logout-item]="item.id === 'sair'"
+      >
+        <button 
+          class="nav-link"
+          (click)="selectSection(item.id)"
+          [title]="isCollapsed ? item.label : ''"
+        >
+          <span class="nav-icon">{{ item.icon }}</span>
+          <span class="nav-text" *ngIf="!isCollapsed">{{ item.label }}</span>
+          <span class="nav-badge" *ngIf="item.badge && !isCollapsed">{{ item.badge }}</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar Footer -->
+  <div class="sidebar-footer" *ngIf="!isCollapsed">
+    <div class="footer-pig">
+      <img src="assets/logo-economia.png" alt="EcoPig" class="footer-pig-img">
+    </div>
+    <p class="footer-text">
+      Economize com inteligência e transforme seu futuro financeiro! 💰
+    </p>
+  </div>
+
+</aside>
+
+<!-- Mobile Overlay -->
+<div class="sidebar-overlay" [class.active]="!isCollapsed" (click)="toggleSidebar()"></div>

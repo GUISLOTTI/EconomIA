@@ -1,0 +1,211 @@
+
+/* ===== ESTILOS GLOBAIS ECONOMIA ===== */
+
+/* Reset e configurações básicas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis CSS - Paleta EconomIA */
+:root {
+  /* Cores principais */
+  --primary-pink: #FF69B4;
+  --primary-pink-light: #FFB6C1;
+  --primary-pink-dark: #C71585;
+  
+  /* Destaque IA - Cyan/Turquesa */
+  --accent-cyan: #00CED1;
+  --accent-cyan-light: #40E0D0;
+  --accent-cyan-dark: #008B8B;
+  
+  /* Cores neutras */
+  --white: #FFFFFF;
+  --gray-light: #F8F9FA;
+  --gray-medium: #E9ECEF;
+  --gray-dark: #6C757D;
+  --black: #212529;
+  
+  /* Sombras */
+  --shadow-light: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-medium: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-strong: 0 8px 25px rgba(0,0,0,0.15);
+  
+  /* Bordas */
+  --border-radius: 12px;
+  --border-radius-small: 8px;
+  --border-radius-large: 20px;
+}
+
+/* Fonte global */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--gray-light);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+/* Classes utilitárias */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+}
+
+/* Botões padrão */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-pink), var(--primary-pink-dark));
+  color: var(--white);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-cyan-dark));
+  color: var(--white);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-pink);
+  color: var(--primary-pink);
+}
+
+.btn-outline:hover {
+  background: var(--primary-pink);
+  color: var(--white);
+}
+
+/* Cards */
+.card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+/* Formulários */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--gray-dark);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--gray-medium);
+  border-radius: var(--border-radius-small);
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-pink);
+}
+
+/* Logo EconomIA - Destaque IA */
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo-economia {
+  color: var(--primary-pink);
+}
+
+.logo-ia {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(0, 206, 209, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}

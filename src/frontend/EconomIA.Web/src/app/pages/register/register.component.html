@@ -1,0 +1,173 @@
+
+<!-- Register Page -->
+<div class="register-page">
+  
+  <!-- Header minimalista -->
+  <header class="auth-header">
+    <div class="container">
+      <a routerLink="/" class="logo flex">
+        <img src="assets/logo-economia.png" alt="EcoPig Logo" class="logo-img">
+        <span class="logo-text">
+          <span class="logo-economia">Econom</span><span class="logo-ia">IA</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="register-main">
+    <div class="container">
+      <div class="register-content">
+        
+        <!-- Área da imagem/informações -->
+        <div class="register-info-section">
+          <div class="info-content fade-in">
+            <div class="info-pig">
+              <img src="assets/logo-economia.png" alt="EcoPig Mascote" class="info-pig-img">
+            </div>
+            
+            <h2 class="info-title">
+              Comece sua jornada financeira com 
+              <span class="logo-economia">Econom</span><span class="logo-ia">IA</span>
+            </h2>
+            
+            <div class="info-benefits">
+              <div class="info-benefit">
+                <span class="benefit-icon">✨</span>
+                <div>
+                  <h3>Grátis para sempre</h3>
+                  <p>Sem taxas ou cobranças ocultas</p>
+                </div>
+              </div>
+              <div class="info-benefit">
+                <span class="benefit-icon">🔒</span>
+                <div>
+                  <h3>100% Seguro</h3>
+                  <p>Seus dados protegidos com criptografia</p>
+                </div>
+              </div>
+              <div class="info-benefit">
+                <span class="benefit-icon">🚀</span>
+                <div>
+                  <h3>Fácil de usar</h3>
+                  <p>Interface intuitiva e amigável</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Área do formulário -->
+        <div class="register-form-section">
+          <div class="register-card card fade-in">
+            <div class="register-header">
+              <h1 class="register-title">Crie sua conta gratuita</h1>
+              <p class="register-subtitle">Junte-se a milhares de usuários que já transformaram suas finanças</p>
+            </div>
+
+            <!-- Formulário de Registro -->
+            <form (ngSubmit)="onSubmit()" class="register-form">
+              
+              <!-- Nome -->
+              <div class="form-group">
+                <label for="name" class="form-label">Nome completo</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  [(ngModel)]="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Seu nome completo"
+                  required
+                  autocomplete="name"
+                >
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  [(ngModel)]="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="seu@email.com"
+                  required
+                  autocomplete="email"
+                >
+              </div>
+
+              <!-- Senha -->
+              <div class="form-group">
+                <label for="password" class="form-label">Senha</label>
+                <input 
+                  type="password" 
+                  id="password" 
+                  [(ngModel)]="password"
+                  name="password"
+                  class="form-input"
+                  placeholder="Mínimo 6 caracteres"
+                  required
+                  autocomplete="new-password"
+                >
+              </div>
+
+              <!-- Confirmar Senha -->
+              <div class="form-group">
+                <label for="confirmPassword" class="form-label">Confirmar senha</label>
+                <input 
+                  type="password" 
+                  id="confirmPassword" 
+                  [(ngModel)]="confirmPassword"
+                  name="confirmPassword"
+                  class="form-input"
+                  placeholder="Digite a senha novamente"
+                  required
+                  autocomplete="new-password"
+                >
+              </div>
+
+              <!-- Mensagem de erro -->
+              <div *ngIf="error" class="error-message">
+                ⚠️ {{ error }}
+              </div>
+
+              <!-- Botão de registro -->
+              <button 
+                type="submit" 
+                class="btn btn-primary btn-full"
+                [disabled]="loading"
+              >
+                <span *ngIf="!loading">Criar Conta Gratuita</span>
+                <span *ngIf="loading" class="loading-text">
+                  <span class="spinner"></span>
+                  Criando conta...
+                </span>
+              </button>
+
+            </form>
+
+            <!-- Termos -->
+            <div class="terms-text">
+              <p>Ao criar uma conta, você concorda com nossos 
+                <a href="#" class="link-primary">Termos de Uso</a> e 
+                <a href="#" class="link-primary">Política de Privacidade</a>
+              </p>
+            </div>
+
+            <!-- Link para login -->
+            <div class="login-link">
+              <p>Já tem uma conta? 
+                <a routerLink="/login" class="link-primary">Faça login</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</div>

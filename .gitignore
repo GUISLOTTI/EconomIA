@@ -1,0 +1,60 @@
+# Diretórios de Build e Artefatos
+bin/
+obj/
+dist/
+build/
+
+# Pacotes NuGet
+packages/
+
+# Logs
+logs/
+*.log
+
+# Arquivos de Banco de Dados
+*.db
+*.sqlite
+*.sqlite3
+
+# Arquivos de Configuração Sensível
+appsettings.json
+appsettings.*.json
+!appsettings.Example.json
+
+# Arquivos de Ambiente
+.env
+.env.local
+.env.production
+secrets.json
+
+# Arquivos de Controle de Versão do Visual Studio
+*.vspscc
+*.vssscc
+*.vsidx
+
+# Configurações do Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Configurações do Visual Studio Code
+.vscode/
+
+# Certificados
+*.pfx
+*.p12
+*.cer
+*.crt
+*.key
+
+# Node Modules (se usar npm/yarn)
+node_modules/
+
+# Arquivos Temporários de Upload
+uploads/
+temp/
+
+# User Secrets
+secrets.json

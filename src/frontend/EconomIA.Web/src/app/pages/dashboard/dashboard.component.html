@@ -1,0 +1,181 @@
+
+<!-- Dashboard Page -->
+<div class="dashboard-page">
+  
+  <!-- Sidebar -->
+  <app-sidebar 
+    [currentSection]="currentSection"
+    (sectionChange)="onSectionChange($event)"
+    (sidebarToggle)="onSidebarToggle($event)">
+  </app-sidebar>
+
+  <!-- Main Content -->
+  <main class="dashboard-main" [class.sidebar-collapsed]="sidebarCollapsed">
+    
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-content">
+        <div class="header-title">
+          <h1 class="page-title">{{ getSectionTitle() }}</h1>
+          <p class="page-subtitle">Bem-vindo de volta, {{ currentUser?.name }}!</p>
+        </div>
+        
+        <div class="header-user">
+          <div class="user-info">
+            <span class="user-avatar">👤</span>
+            <div class="user-details">
+              <span class="user-name">{{ currentUser?.name }}</span>
+              <span class="user-email">{{ currentUser?.email }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <div class="dashboard-content">
+      
+      <!-- Dashboard Home -->
+      <div *ngIf="currentSection === 'dashboard'" class="section-content fade-in">
+        
+        <!-- Financial Summary Cards -->
+        <div class="summary-grid">
+          <div class="summary-card card">
+            <div class="summary-icon income-icon">💰</div>
+            <div class="summary-details">
+              <h3 class="summary-title">Receitas</h3>
+              <p class="summary-value income">{{ formatCurrency(financialSummary.totalReceitas) }}</p>
+            </div>
+          </div>
+
+          <div class="summary-card card">
+            <div class="summary-icon expense-icon">💸</div>
+            <div class="summary-details">
+              <h3 class="summary-title">Despesas</h3>
+              <p class="summary-value expense">{{ formatCurrency(financialSummary.totalDespesas) }}</p>
+            </div>
+          </div>
+
+          <div class="summary-card card">
+            <div class="summary-icon balance-icon">🏦</div>
+            <div class="summary-details">
+              <h3 class="summary-title">Saldo Atual</h3>
+              <p class="summary-value balance">{{ formatCurrency(financialSummary.saldoAtual) }}</p>
+            </div>
+          </div>
+
+          <div class="summary-card card">
+            <div class="summary-icon savings-icon">📈</div>
+            <div class="summary-details">
+              <h3 class="summary-title">Taxa de Economia</h3>
+              <p class="summary-value savings">{{ financialSummary.percentualEconomia }}%</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+          
+          <!-- Recent Transactions -->
+          <div class="dashboard-widget card">
+            <div class="widget-header">
+              <h2 class="widget-title">Transações Recentes</h2>
+              <button class="btn btn-outline btn-small">Ver todas</button>
+            </div>
+            
+            <div class="transactions-list">
+              <div 
+                class="transaction-item" 
+                *ngFor="let transaction of recentTransactions"
+                [class]="getTransactionClass(transaction.tipo)"
+              >
+                <div class="transaction-icon">{{ getTransactionIcon(transaction.tipo) }}</div>
+                <div class="transaction-details">
+                  <h4 class="transaction-description">{{ transaction.descricao }}</h4>
+                  <p class="transaction-category">{{ transaction.categoria }} • {{ formatDate(transaction.data) }}</p>
+                </div>
+                <div class="transaction-amount">{{ formatCurrency(getAbsoluteValue(transaction.valor)) }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Monthly Goals -->
+          <div class="dashboard-widget card">
+            <div class="widget-header">
+              <h2 class="widget-title">Metas do Mês</h2>
+              <button class="btn btn-outline btn-small">Gerenciar</button>
+            </div>
+            
+            <div class="goals-list">
+              <div class="goal-item" *ngFor="let goal of monthlyGoals">
+                <div class="goal-info">
+                  <h4 class="goal-title">{{ goal.titulo }}</h4>
+                  <p class="goal-progress-text">
+                    {{ formatCurrency(goal.valorAtual) }} de {{ formatCurrency(goal.valorMeta) }}
+                  </p>
+                </div>
+                <div class="goal-progress">
+                  <div class="progress-bar">
+                    <div 
+                      class="progress-fill" 
+                      [style.width.%]="goal.progresso"
+                    ></div>
+                  </div>
+                  <span class="progress-percentage">{{ goal.progresso }}%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+          <h2 class="section-title">Ações Rápidas</h2>
+          <div class="actions-grid">
+            <button class="action-card card" (click)="onSectionChange('receitas')">
+              <span class="action-icon">💰</span>
+              <span class="action-text">Nova Receita</span>
+            </button>
+            <button class="action-card card" (click)="onSectionChange('despesas')">
+              <span class="action-icon">💸</span>
+              <span class="action-text">Nova Despesa</span>
+            </button>
+            <button class="action-card card" (click)="onSectionChange('metas')">
+              <span class="action-icon">🎯</span>
+              <span class="action-text">Definir Meta</span>
+            </button>
+            <button class="action-card card" (click)="onSectionChange('relatorios')">
+              <span class="action-icon">📊</span>
+              <span class="action-text">Ver Relatórios</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Outras Seções (Genéricas) -->
+      <div *ngIf="currentSection !== 'dashboard'" class="section-content fade-in">
+        <div class="generic-section card">
+          <div class="generic-icon">{{ getSectionIcon() }}</div>
+          <h2 class="generic-title">{{ getSectionTitle() }}</h2>
+          <p class="generic-description">
+            Esta seção está em desenvolvimento. Em breve você terá acesso a todas as funcionalidades de {{ getSectionTitle().toLowerCase() }}.
+          </p>
+          <div class="generic-features">
+            <div class="feature-item" *ngFor="let feature of getSectionFeatures()">
+              <span class="feature-icon">✅</span>
+              <span class="feature-text">{{ feature }}</span>
+            </div>
+          </div>
+          <button class="btn btn-primary" (click)="onSectionChange('dashboard')">
+            Voltar ao Dashboard
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

@@ -1,0 +1,133 @@
+
+<!-- Landing Page - EconomIA -->
+<div class="landing-page">
+  
+  <!-- Header/Navegação -->
+  <header class="landing-header">
+    <div class="container flex-between">
+      <div class="logo flex">
+        <img src="assets/logo-economia.png" alt="EcoPig Logo" class="logo-img">
+        <span class="logo-text">
+          <span class="logo-economia">Econom</span><span class="logo-ia">IA</span>
+        </span>
+      </div>
+      
+      <nav class="nav-menu">
+        <a routerLink="/login" class="btn btn-outline">Entrar</a>
+        <a routerLink="/register" class="btn btn-primary">Cadastrar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content fade-in">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Transforme suas finanças com 
+            <span class="logo-economia">Econom</span><span class="logo-ia">IA</span>
+          </h1>
+          <p class="hero-description">
+            O sistema de gestão financeira mais inteligente e fácil de usar. 
+            Controle suas receitas, despesas e metas com a ajuda da inteligência artificial.
+          </p>
+          <div class="hero-actions">
+            <a routerLink="/register" class="btn btn-primary btn-large">
+              Começar Gratuitamente
+            </a>
+            <a routerLink="/login" class="btn btn-secondary btn-large">
+              Já tenho conta
+            </a>
+          </div>
+        </div>
+        
+        <div class="hero-image">
+          <div class="hero-pig-container">
+            <img src="assets/logo-economia.png" alt="EcoPig - Mascote EconomIA" class="hero-pig">
+            <div class="pig-stats">
+              <div class="stat-bubble">
+                <span class="stat-icon">💰</span>
+                <span class="stat-text">+R$ 2.500</span>
+              </div>
+              <div class="stat-bubble">
+                <span class="stat-icon">📈</span>
+                <span class="stat-text">+15%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">Por que escolher o <span class="logo-economia">Econom</span><span class="logo-ia">IA</span>?</h2>
+      
+      <div class="features-grid">
+        <div class="feature-card card fade-in" *ngFor="let feature of features">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-description">{{ feature.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title">O que nossos usuários dizem</h2>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card card fade-in" *ngFor="let testimonial of testimonials">
+          <div class="testimonial-avatar">{{ testimonial.avatar }}</div>
+          <p class="testimonial-text">"{{ testimonial.text }}"</p>
+          <h4 class="testimonial-name">{{ testimonial.name }}</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content card">
+        <h2 class="cta-title">Pronto para transformar suas finanças?</h2>
+        <p class="cta-description">
+          Junte-se a milhares de usuários que já estão economizando mais com o EconomIA
+        </p>
+        <a routerLink="/register" class="btn btn-primary btn-large">
+          Começar Agora - É Grátis!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/logo-economia.png" alt="EcoPig Logo" class="footer-logo-img">
+          <span class="logo-text">
+            <span class="logo-economia">Econom</span><span class="logo-ia">IA</span>
+          </span>
+        </div>
+        
+        <div class="footer-links">
+          <a href="#" class="footer-link">Termos de Uso</a>
+          <a href="#" class="footer-link">Política de Privacidade</a>
+          <a href="#" class="footer-link">Suporte</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 EconomIA. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
