@@ -25,6 +25,7 @@ appsettings.*.json
 .env
 .env.local
 .env.production
+**/.angular/cache/
 secrets.json
 
 # Arquivos de Controle de Versão do Visual Studio
