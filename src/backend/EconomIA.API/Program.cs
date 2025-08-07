@@ -1,4 +1,3 @@
-using EconomIA.Domain.Interfaces;
 using EconomIA.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
